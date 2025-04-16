@@ -1,0 +1,135 @@
+// 1️⃣ Find the Largest Number in an Array
+function findMax(arr) {
+    return Math.max(...arr);
+}
+function findMaxWithoutInbuilt(arr) {
+    let max = arr[0];
+    for (let num of arr) {
+        if (num > max) max = num;
+    }
+    return max;
+}
+console.log(findMax([10, 5, 20, 8])); // 20
+console.log(findMaxWithoutInbuilt([10, 5, 20, 8])); // 20
+
+// 2️⃣ Find the Smallest Number in an Array
+function findMin(arr) {
+    return Math.min(...arr);
+}
+function findMinWithoutInbuilt(arr) {
+    let min = arr[0];
+    for (let num of arr) {
+        if (num < min) min = num;
+    }
+    return min;
+}
+console.log(findMin([10, 5, 20, 8])); // 5
+console.log(findMinWithoutInbuilt([10, 5, 20, 8])); // 5
+
+// 3️⃣ Reverse an Array
+function reverseArray(arr) {
+    return arr.reverse();
+}
+function reverseArrayWithoutInbuilt(arr) {
+    let reversed = [];
+    for (let i = arr.length - 1; i >= 0; i--) {
+        reversed.push(arr[i]);
+    }
+    return reversed;
+}
+console.log(reverseArray([1, 2, 3, 4])); // [4, 3, 2, 1]
+console.log(reverseArrayWithoutInbuilt([1, 2, 3, 4])); // [4, 3, 2, 1]
+
+// 4️⃣ Remove Duplicates from an Array
+function removeDuplicates(arr) {
+    return [...new Set(arr)];
+}
+function removeDuplicatesWithoutInbuilt(arr) {
+    let uniqueArr = [];
+    for (let num of arr) {
+        if (!uniqueArr.includes(num)) uniqueArr.push(num);
+    }
+    return uniqueArr;
+}
+console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5])); // [1, 2, 3, 4, 5]
+console.log(removeDuplicatesWithoutInbuilt([1, 2, 2, 3, 4, 4, 5])); // [1, 2, 3, 4, 5]
+
+// 5️⃣ Find the Sum of All Elements in an Array
+function sumArray(arr) {
+    return arr.reduce((sum, num) => sum + num, 0);
+}
+function sumArrayWithoutInbuilt(arr) {
+    let sum = 0;
+    for (let num of arr) {
+        sum += num;
+    }
+    return sum;
+}
+console.log(sumArray([1, 2, 3, 4])); // 10
+console.log(sumArrayWithoutInbuilt([1, 2, 3, 4])); // 10
+
+// 6️⃣ Reverse a String
+function reverseString(str) {
+    return str.split('').reverse().join('');
+}
+function reverseStringWithoutInbuilt(str) {
+    let reversed = "";
+    for (let i = str.length - 1; i >= 0; i--) {
+        reversed += str[i];
+    }
+    return reversed;
+}
+console.log(reverseString("hello")); // "olleh"
+console.log(reverseStringWithoutInbuilt("hello")); // "olleh"
+
+// 7️⃣ Check if a String is a Palindrome
+function isPalindrome(str) {
+    return str === str.split('').reverse().join('');
+}
+function isPalindromeWithoutInbuilt(str) {
+    let left = 0, right = str.length - 1;
+    while (left < right) {
+        if (str[left] !== str[right]) return false;
+        left++;
+        right--;
+    }
+    return true;
+}
+console.log(isPalindrome("madam")); // true
+console.log(isPalindromeWithoutInbuilt("madam")); // true
+
+// 8️⃣ Count the Number of Vowels in a String
+function countVowels(str) {
+    let matches = str.match(/[aeiou]/gi);
+    return matches ? matches.length : 0;
+}
+function countVowelsWithoutInbuilt(str) {
+    let count = 0;
+    let vowels = "aeiouAEIOU";
+    for (let char of str) {
+        if (vowels.includes(char)) count++;
+    }
+    return count;
+}
+console.log(countVowels("hello world")); // 3
+console.log(countVowelsWithoutInbuilt("hello world")); // 3
+
+// 9️⃣ Reverse Words in a Sentence
+function reverseWords(sentence) {
+    return sentence.split(' ').reverse().join(' ');
+}
+function reverseWordsWithoutInbuilt(sentence) {
+    let words = [], word = "";
+    for (let char of sentence) {
+        if (char === ' ') {
+            words.unshift(word);
+            word = "";
+        } else {
+            word += char;
+        }
+    }
+    words.unshift(word);
+    return words.join(' ');
+}
+console.log(reverseWords("Hello World")); // "World Hello"
+console.log(reverseWordsWithoutInbuilt("Hello World")); // "World Hello"
